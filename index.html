@@ -123,17 +123,17 @@
   <script src="https://cdn.datatables.net/v/bs5/dt-2.0.3/datatables.min.js"></script>
   <script>
   const ROWS = [
-    {"product_subtype": "dash_camera", "overall_score": 0.85, "overall_st_hits": 477, "overall_gmv_oppt": 3138, "report_href": "automotive__dash-camera.html"},
-    {"product_subtype": "engine_oil", "overall_score": 0.81, "overall_st_hits": 48, "overall_gmv_oppt": 144, "report_href": "automotive__engine-oil.html"},
-    {"product_subtype":"ev_charger","overall_score":0.71,"overall_st_hits":93,"overall_gmv_oppt":1422,"report_href":"automotive__ev-charger.html"},
-    {"product_subtype": "air_freshener", "overall_score": 0.84, "overall_st_hits": 1387, "overall_gmv_oppt": 1055, "report_href": "automotive__air-freshener.html"},
-    {"product_subtype": "tyres", "overall_score": 0.68, "overall_st_hits": 80, "overall_gmv_oppt": 654, "report_href": "automotive__tyres.html"},
-    {"product_subtype": "vacuum_cleaners", "overall_score": 0.89, "overall_st_hits": 1285, "overall_gmv_oppt": 3953, "report_href": "automotive__vacuum-cleaners.html"},
-    {"product_subtype": "wax", "overall_score": 0.81, "overall_st_hits": 240, "overall_gmv_oppt": 483, "report_href": "automotive__wax.html"},
-    {"product_subtype": "tyre_inflator", "overall_score": 0.76, "overall_st_hits": 76, "overall_gmv_oppt": 239, "report_href": "automotive__tyre-inflator.html"},
-    {"product_subtype": "car_covers", "overall_score": 0.78, "overall_st_hits": 23, "overall_gmv_oppt": 52, "report_href": "automotive__car-covers.html"},
-    {"product_subtype": "parking_camera", "overall_score": 0.83, "overall_st_hits": 9, "overall_gmv_oppt": 30, "report_href": "automotive__parking-camera.html"}
-  ];
+  {"product_subtype": "dash_camera", "overall_st_hits": 6167, "overall_gmv_oppt": 55272, "report_href": "automotive__dash-camera.html"},
+  {"product_subtype": "engine_oil", "overall_st_hits": 5180, "overall_gmv_oppt": 12501, "report_href": "automotive__engine-oil.html"},
+  {"product_subtype": "ev_charger", "overall_st_hits": 578, "overall_gmv_oppt": 9681, "report_href": "automotive__ev-charger.html"},
+  {"product_subtype": "air_freshener", "overall_st_hits": 18269, "overall_gmv_oppt": 11136, "report_href": "automotive__air-freshener.html"},
+  {"product_subtype": "tyres", "overall_st_hits": 949, "overall_gmv_oppt": 15064, "report_href": "automotive__tyres.html"},
+  {"product_subtype": "vacuum_cleaners", "overall_st_hits": 2770, "overall_gmv_oppt": 9567, "report_href": "automotive__vacuum-cleaners.html"},
+  {"product_subtype": "wax", "overall_st_hits": 423, "overall_gmv_oppt": 492, "report_href": "automotive__wax.html"},
+  {"product_subtype": "tyre_inflator", "overall_st_hits": 2477, "overall_gmv_oppt": 10025, "report_href": "automotive__tyre-inflator.html"},
+  {"product_subtype": "car_covers", "overall_st_hits": 1726, "overall_gmv_oppt": 4076, "report_href": "automotive__car-covers.html"},
+  {"product_subtype": "parking_camera", "overall_st_hits": 714, "overall_gmv_oppt": 4153, "report_href": "automotive__parking-camera.html"}
+]
 
   const fmtInt = (v) => (v===null||v===undefined||isNaN(v)) ? "—" : Number(v).toLocaleString();
   const fmtNum = (v) => (v===null||v===undefined||isNaN(v)) ? "—" : Number(v).toLocaleString(undefined, {maximumFractionDigits:2});
@@ -144,12 +144,11 @@
       data: ROWS,
       columns: [
         { title: 'Product Subtype', data: 'product_subtype' , className: 'text-center'},
-        { title: 'Overall Score', data: 'overall_score', className: 'text-center', render:(d)=>fmtNum(d) },
-        { title: 'Overall Search Hits', data: 'overall_st_hits', className: 'text-center', render:(d)=>fmtInt(d) },
-        { title: 'Overall GMV Opportunity', data: 'overall_gmv_oppt', className: 'text-center', render:(d)=>fmtNum(d) },
+        { title: 'Est. Search Hits', data: 'overall_st_hits', className: 'text-center', render:(d)=>fmtInt(d) },
+        { title: 'Est. GMV Potential (AED)', data: 'overall_gmv_oppt', className: 'text-center', render:(d)=>fmtNum(d) },
         { title: 'Report', data: 'report_href', className: 'text-center', render:(d)=>toLink(d, 'Open report') }
       ],
-      order: [[3, 'desc']],
+      order: [[2, 'desc']],
       pageLength: 25,
       lengthMenu: [25, 50, 100],
       autoWidth: false,
